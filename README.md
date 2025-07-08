@@ -1,4 +1,4 @@
-# Rock Paper Scissors (じゃんけん) ゲーム
+# 瞬間じゃんけんゲーム
 
 OpenGLとMediaPipeを使ったリアルタイム手認識じゃんけんゲームです。
 
@@ -11,19 +11,22 @@ OpenGLとMediaPipeを使ったリアルタイム手認識じゃんけんゲー�
 
 ## 必要な環境
 
-- Python 3.7+
+- Python 3.9+
 - Webカメラ
 
 ## インストール
 
 ```bash
-pip install opencv-python mediapipe pygame PyOpenGL PyOpenGL_accelerate
+python -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
 ## 使い方
 
 ```bash
-python main.py
+export PYTHONPATH=$(pwd); python src/main.py
 ```
 
 ## 操作方法
@@ -45,22 +48,4 @@ python main.py
 - **グー（Rock）**: 握りこぶし
 - **パー（Paper）**: 開いた手
 - **チョキ（Scissors）**: 人差し指と中指を立てる
-
-## ファイル構成
-
-```plaintext
-├── main.py                 # メインファイル
-├── src/
-│   └── common/
-│       └── logger.py      # ログ機能
-└── README.md
-```
-
-## トラブルシューティング
-
-- カメラが認識されない場合は、他のアプリケーションでカメラが使用されていないか確認してください
-- 手の認識が悪い場合は、照明を明るくして手をはっきりと映してください
-
-## ライセンス
-
-MIT License
+s
