@@ -17,6 +17,7 @@ OpenGLとMediaPipeを使ったリアルタイム手認識じゃんけんゲー�
 ## インストール
 
 ```bash
+mv .env.example .env
 python -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
