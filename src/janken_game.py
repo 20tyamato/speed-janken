@@ -1,3 +1,4 @@
+# src/janken_game.py
 import math
 import random
 import time

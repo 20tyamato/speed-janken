@@ -1,3 +1,4 @@
+# src/particle.py
 import math
 import random
 import time

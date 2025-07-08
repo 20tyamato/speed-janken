@@ -1,3 +1,4 @@
+# src/detector.py
 import math
 import warnings
 
