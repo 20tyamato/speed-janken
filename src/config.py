@@ -4,6 +4,7 @@ import logging.config
 import os
 
 
+# notes: ログの初期化
 def init_logging_config():
     config_path = os.getenv("LOG_CONFIG_FILE_PATH")
     os.makedirs(os.path.dirname(config_path), exist_ok=True)

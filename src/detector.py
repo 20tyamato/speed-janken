@@ -73,6 +73,7 @@ class HandGestureDetector:
 
         return is_extended and thumb_distance > 0.08
 
+    # notes: チョキのみ制度が低いので改善
     def detect_scissors_improved(self, landmarks):
         index_tip = landmarks[8]
         index_pip = landmarks[6]
@@ -91,6 +92,7 @@ class HandGestureDetector:
         thumb_tip = landmarks[4]
         thumb_pip = landmarks[3]
 
+        # notes: チョキの条件を満たすための指の状態を確認
         index_extended = (
             index_tip[1] < index_pip[1] - 0.03
             and self.calculate_distance(index_tip, index_mcp)
@@ -129,6 +131,7 @@ class HandGestureDetector:
             and middle_tip[1] > middle_pip[1]
         )
 
+        # notes: 最後にチョキの条件の合計を計算
         scissors_conditions = [
             index_extended,
             middle_extended,
@@ -144,6 +147,7 @@ class HandGestureDetector:
 
         return scissors_score >= 7
 
+    # notes: 手のジェスチャーを詳細に検出するメソッド
     def detect_gesture_detailed(self, landmarks):
         fingers_extended = []
 

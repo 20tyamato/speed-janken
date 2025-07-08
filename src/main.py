@@ -7,6 +7,7 @@ from src.common import logger
 from src.janken_game import JankenGame
 
 
+# notes: 必要なライブラリがインストールされているか確認する関数
 def check_system_requirements():
     required_packages = [
         ("cv2", "opencv-python"),

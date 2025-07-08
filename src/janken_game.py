@@ -115,6 +115,7 @@ class JankenGame:
 
         return frame
 
+    # notes: カメラの映像をOpenGLのテクスチャとして作成するメソッド
     def create_camera_texture(self, frame):
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame_rgb = cv2.flip(frame_rgb, 0)
@@ -146,6 +147,7 @@ class JankenGame:
 
         return self.camera_texture
 
+    # notes: カメラの映像を描画するメソッド
     def draw_textured_quad(self, texture_id, x, y, z, width, height):
         glEnable(GL_TEXTURE_2D)
         glBindTexture(GL_TEXTURE_2D, texture_id)
@@ -375,6 +377,8 @@ class JankenGame:
         if self.player_gesture:
             self.draw_player_hand()
 
+    # notes: ゲームのUIを描画するメソッド
+    # ゲームのスコア、ラウンド数、リアクションタイムなどを表示
     def draw_game_ui(self):
         glDisable(GL_DEPTH_TEST)
 
@@ -515,6 +519,7 @@ class JankenGame:
 
         glEnable(GL_DEPTH_TEST)
 
+    # notes: カメラの映像を描画するメソッド
     def draw_camera_feed(self):
         if self.camera_texture:
             self.draw_textured_quad(self.camera_texture, -6, 4, -15, 6, 4.5)
@@ -527,6 +532,7 @@ class JankenGame:
             glVertex3f(-9, 6.25, -15)
             glEnd()
 
+    # notes: コンピューターの手を描画するメソッド
     def draw_computer_hand(self):
         pulse = (math.sin(time.time() * 8) + 1) * 0.2 + 0.8
         color = (
@@ -543,6 +549,7 @@ class JankenGame:
         for char in label:
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(char))
 
+    # notes: プレイヤーの手を描画するメソッド
     def draw_player_hand(self):
         color = (0.2, 1.0, 0.2) if self.player_gesture else (0.5, 0.5, 0.5)
 

@@ -13,6 +13,8 @@ warnings.filterwarnings("ignore")
 warnings.simplefilter("ignore")
 
 
+# notes: パーティクルのクラス
+# パーティクルは、位置、速度、色、効果タイプなどの属性を持ち、更新と描画のメソッドを提供
 class Particle:
     def __init__(self, x, y, z, color, effect_type="normal"):
         self.x = x
@@ -137,6 +139,8 @@ class Particle:
         glPopMatrix()
 
 
+# notes: パーティクルシステムのクラス
+# パーティクルシステムは、パーティクルの管理、追加、更新、描画を行う
 class ParticleSystem:
     def __init__(self):
         self.particles = []
