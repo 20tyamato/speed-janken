@@ -6,6 +6,7 @@ import os
 
 def init_logging_config():
     config_path = os.getenv("LOG_CONFIG_FILE_PATH")
+    os.makedirs(os.path.dirname(config_path), exist_ok=True)
     if not config_path or not os.path.exists(config_path):
         logging.basicConfig(level=logging.INFO)
         logging.getLogger(__name__).warning(

@@ -1,73 +1,66 @@
-# Python Template
+# Rock Paper Scissors (じゃんけん) ゲーム
 
-This repository contains templates for a python project. Copy this repository and start your project.
+OpenGLとMediaPipeを使ったリアルタイム手認識じゃんけんゲームです。
 
-## Python and Pip Installation
+## 特徴
 
-- Python 3.11.5
-- pip 25.0.1
+- 3Dグラフィックスによる美しいビジュアル
+- カメラを使ったリアルタイム手認識
+- パーティクルエフェクト
+- スコア管理
 
-## Installation
+## 必要な環境
 
-The package can be installed like this:
+- Python 3.7+
+- Webカメラ
 
-```shell
-git clone https://github.com/20tyamato/python-template.git new-project
-cd new-project
-rm -rf .git
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin "https://$GIT_PERSONAL_TOKEN@github.com/20tyamato/new-project.git"
-git push -u origin main
-python3 -m venv venv
-source venv/bin/activate
-pip install -e .
-pip install -r requirements.txt
-pre-commit install
+## インストール
+
+```bash
+pip install opencv-python mediapipe pygame PyOpenGL PyOpenGL_accelerate
 ```
 
-## Lint & Format
+## 使い方
 
-This repository uses [Ruff](https://github.com/astral-sh/ruff) to run lint & format codes.
-You can set up pre-commit git hooks by running following commands, then formatter is run automatically before commit.
-
-```console
-pre-commit install
+```bash
+python main.py
 ```
 
-or you can also run manually
+## 操作方法
 
-```console
-python -m ruff check
-python -m ruff format
+- **SPACE** - ゲーム開始
+- **R** - リセット
+- **ESC** - 終了
+
+## ゲームの流れ
+
+1. スペースキーでゲーム開始
+2. カウントダウン（3, 2, 1）
+3. コンピューターの手が表示される
+4. カメラに向かって手を出す（グー✊、パー✋、チョキ✌️）
+5. 結果判定とエフェクト表示
+
+## 手の認識
+
+- **グー（Rock）**: 握りこぶし
+- **パー（Paper）**: 開いた手
+- **チョキ（Scissors）**: 人差し指と中指を立てる
+
+## ファイル構成
+
+```plaintext
+├── main.py                 # メインファイル
+├── src/
+│   └── common/
+│       └── logger.py      # ログ機能
+└── README.md
 ```
 
-## Tests
+## トラブルシューティング
 
-```console
-export PYTHONPATH=$(pwd)
-pytest -c config/pytest.ini
-pip check
-```
+- カメラが認識されない場合は、他のアプリケーションでカメラが使用されていないか確認してください
+- 手の認識が悪い場合は、照明を明るくして手をはっきりと映してください
 
-## pip packages installed
+## ライセンス
 
-```console
-pip install python-dotenv
-pip install colorlog
-pip install pytest
-pip install pre-commit
-pip install ruff
-pip install openai
-pip install torch
-pip install pandas
-```
-
-## How to push to GitHub
-
-```console
-git remote set-url origin "https://$GIT_PERSONAL_TOKEN@github.com/20tyamato/python-template.git"
-git push -u origin main
-```
+MIT License
